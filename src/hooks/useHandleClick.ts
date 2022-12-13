@@ -1,7 +1,7 @@
 import {RefObject} from "react";
 
 export interface HandleClickProps {
-    (ref: RefObject<HTMLElement>, callback: (arg: boolean) => void): void;
+    (ref: RefObject<HTMLElement> | any, callback: (arg: boolean) => void): void;
 
 }
 

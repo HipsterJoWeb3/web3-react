@@ -57,7 +57,7 @@ export const options = {
 
 
 
-const BarChart = ({data}) => {
+const BarChart = ({data}: {data: any}) => {
   return (
     <Bar options={options} data={data} />
   );

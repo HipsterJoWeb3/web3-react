@@ -1,12 +1,12 @@
 import MyButton from '../../../UI/buttons/MyButton'
-import {useRef} from "react";
+import React, {useRef} from "react";
 
 export interface AdminPreviewOptionProps {
-    url: string
-    changePreview: () => void
+    url: string | any
+    changePreview: (() => void) | any
 }
 
-const AdminPreviewOption = ({url, changePreview}) => {
+const AdminPreviewOption: React.FC<AdminPreviewOptionProps> = ({url, changePreview}) => {
 
   const inputRef = useRef<HTMLInputElement>(null)
 

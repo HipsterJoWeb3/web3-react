@@ -7,11 +7,11 @@ import {motion} from 'framer-motion'
 export interface AdminPreviewPostProps {
     inputValue: string
     changeInputValue: (e: React.ChangeEvent<HTMLInputElement>) => void
-    setUrl?: (url: string) => void
+    setUrl?: ((url: string) => void) | any
     url?: string
     changePicture?: boolean
-    setChangePicture?: (changePicture: boolean) => void
-    uploadPreview?: (e: React.ChangeEvent<HTMLInputElement>) => void,
+    setChangePicture?: ((changePicture: boolean) => void) | any
+    uploadPreview?: ((e: React.ChangeEvent<HTMLInputElement>) => void) | any
     uploadRef?: React.RefObject<HTMLInputElement>
 }
 
@@ -27,7 +27,7 @@ const PreviewPostButtons: React.FC<AdminPreviewPostProps> = ({changePicture, set
         }
     }
 
-    const changeFilePicture = async (e) => {
+    const changeFilePicture = async (e: any) => {
         await uploadPreview(e)
         setChangePicture(false)
     }

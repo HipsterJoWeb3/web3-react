@@ -1,6 +1,12 @@
+import React from "react";
+
+export interface AdminSimpleOptionProps {
+    titleOption: string
+    text: string
+}
 
 
-const AdminSimpleOption = ({titleOption, text}) => {
+const AdminSimpleOption: React.FC<AdminSimpleOptionProps> = ({titleOption, text}) => {
   return (
     <div className="admin-sidebar__options-item">
       <h3 className="admin-sidebar__options-label">{titleOption}</h3>

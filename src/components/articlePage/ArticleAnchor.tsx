@@ -25,7 +25,7 @@ const ArticleAnchor: React.FC<ArticleAnchorProps> = ({anchor, index}) => {
   }
 
 
-  const scrollElement = (item, i, e) => {
+  const scrollElement = (item: any, i: number, e: any) => {
     e.preventDefault()
     item.el.scrollIntoView({block: 'start', behavior: 'smooth'})
     setIndexSubtitle(i)

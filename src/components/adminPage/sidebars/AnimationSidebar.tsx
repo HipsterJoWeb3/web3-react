@@ -39,7 +39,7 @@ const AnimationSidebar: React.FC<AnimationSidebarProps> = ({sidebarTitle, inputV
                     small
                     placeholder="Enter label"
                     value={inputValue}
-                    setValue={(e) => setInputValue(e.target.value)}
+                    setValue={(e: any) => setInputValue(e.target.value)}
                 />
                 <AdminTextareaOption
                     titleOption="Animation content"

@@ -2,11 +2,11 @@ import React, { useState} from 'react'
 import {generalData, updateGeneralSlice} from "../../../redux/general/slice";
 import MyButton from "../../../UI/buttons/MyButton";
 import Update from "../../../assets/iconsComponent/Update";
-import AdminCard from "../AdminCard";
+
 
 import {
     keywords,
-    socialLinks, updateSeoInfo
+    updateSeoInfo
 } from "../../../hooks/useGeneral";
 import AdminInputOption from "../sidebarOptions/AdminInputOption";
 import AdminTextareaOption from "../sidebarOptions/AdminTextareaOption";
@@ -58,7 +58,7 @@ const AdminWebsite = () => {
                 <AdminInputOption
                     titleOption="Title"
                     value={title}
-                    setValue={(e) => setTitle(e.target.value)}
+                    setValue={(e: any) => setTitle(e.target.value)}
                     small
                 />
             </div>

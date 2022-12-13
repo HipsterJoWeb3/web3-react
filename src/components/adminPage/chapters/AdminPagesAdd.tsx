@@ -53,7 +53,7 @@ const AdminPagesAdd: React.FC<AdminPagesAddProps> = ({id, edit, routeProp, title
                         <h1 className="label">Description</h1>
                         <MyTextArea full={true} rows={8} value={description} setValue={setDescription} placeholder="Enter description"></MyTextArea>
                         <h1 className="label">Route</h1>
-                        <AdminInputOption value={route} setValue={e => setRoute(e.target.value)} small placeholder="Enter route page [/page]"/>
+                        <AdminInputOption value={route} setValue={(e: any) => setRoute(e.target.value)} small placeholder="Enter route page [/page]"/>
                     </div>
 
 

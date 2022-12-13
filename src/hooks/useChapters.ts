@@ -3,9 +3,9 @@ import {createChapter, deleteChapter, getCountChapters, hiddenChapter, updateCha
 import {toastError, toastSuccess} from "./useModalAndAlert";
 
 
-export const getChapters = (chapters) => {
+export const getChapters = (chapters: any) => {
     const value = useMemo(() => {
-        return chapters.map((item) => {
+        return chapters.map((item: any) => {
             return {
                 title: item.value,
                 link: `posts?chapter=${item.value}&type=recent`,
@@ -22,7 +22,7 @@ export const getChapters = (chapters) => {
     return value
 }
 
-export const addChapterAction = async (chapters, chapter) => {
+export const addChapterAction = async (chapters: any, chapter: any) => {
     const data = await createChapter(chapter)
 
     return [...chapters, {
@@ -33,15 +33,15 @@ export const addChapterAction = async (chapters, chapter) => {
     }]
 }
 
-export const deleteChapterAction = async (chapters, id, setChaptersList, setCurrentId, setInputValue, setTextAreaValue, setShowRecent, setShowPopular, setNumberPosts) => {
+export const deleteChapterAction = async (chapters: any, id: any, setChaptersList: any, setCurrentId: any, setInputValue: any, setTextAreaValue: any, setShowRecent: any, setShowPopular: any, setNumberPosts: any) => {
     const count = await getCountChapters(id)
-    const index = chapters.findIndex(item => item._id === id)
+    const index = chapters.findIndex((item: any) => item._id === id)
     if(count > 0) {
         toastError(`Chapter has ${count} posts`)
     } else {
         await deleteChapter(id)
         const newChapter = index === 0 ? chapters[1] : chapters[index - 1]
-        setChaptersList(chapters.filter(item => item._id !== id))
+        setChaptersList(chapters.filter((item: any) => item._id !== id))
         setCurrentId(newChapter._id)
         setInputValue(newChapter.title)
         setTextAreaValue(newChapter.text)
@@ -54,10 +54,10 @@ export const deleteChapterAction = async (chapters, id, setChaptersList, setCurr
 
 }
 
-export const updateChapterAction = async (chapters, chapter) => {
+export const updateChapterAction = async (chapters: any, chapter: any) => {
     const data = await updateChapter(chapter._id, chapter)
 
-    return chapters.map(item => {
+    return chapters.map((item: any) => {
         if (item._id === chapter._id) {
             return {
                 ...data,
@@ -70,9 +70,9 @@ export const updateChapterAction = async (chapters, chapter) => {
     })
 }
 
-export const actionHideChapter = async (chapters, id, hidden) => {
+export const actionHideChapter = async (chapters: any, id: any, hidden: any) => {
     const data = await hiddenChapter(id, hidden)
-    return chapters.map(item => {
+    return chapters.map((item: any) => {
         if (item._id === id) {
             return {
                 ...data,
@@ -87,7 +87,7 @@ export const actionHideChapter = async (chapters, id, hidden) => {
 }
 
 
-export const actionChapter = async (inputValue, textAreaValue, numberPosts, addMode, chapterList, setChapterList, setAddMode, setChapterSidebarTitle, chapter) => {
+export const actionChapter = async (inputValue: any, textAreaValue: any, numberPosts: any, addMode: any, chapterList: any, setChapterList: any, setAddMode: any, setChapterSidebarTitle: any, chapter: any) => {
     if(inputValue.trim().length > 0 && textAreaValue.trim().length > 0 && numberPosts.trim().length > 0 ) {
 
         const data = addMode ? await addChapterAction(chapterList, chapter) : await updateChapterAction(chapterList, chapter)
@@ -106,7 +106,7 @@ export const actionChapter = async (inputValue, textAreaValue, numberPosts, addM
 
 
 
-export const hideChapter = async (chapters, setChapterList, id, hidden) => {
+export const hideChapter = async (chapters: any, setChapterList: any, id: any, hidden: any) => {
     const data = await actionHideChapter(chapters, id, hidden)
     if(data) {
         setChapterList(data)

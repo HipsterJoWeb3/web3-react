@@ -1,5 +1,4 @@
 import React from "react";
-import AdminHeaderOption from "../sidebarOptions/AdminHeaderOption";
 import AdminInputOption from "../sidebarOptions/AdminInputOption";
 import AdminActionsOption from "../sidebarOptions/AdminActionsOption";
 
@@ -17,8 +16,8 @@ const SocialLinksSidebar: React.FC<SocialLinksSidebarProps> = ({buttonDataSocial
     return (
         <div className="admin-sidebar">
             <div className="admin-sidebar__options">
-                <AdminInputOption titleOption="Social link title" value={socialTitle} setValue={e => setSocialTitle(e.target.value)} placeholder="Enter social link title"/>
-                <AdminInputOption titleOption="Social link url" value={socialUrl} setValue={e => setSocialUrl(e.target.value)} placeholder="Enter social link url"/>
+                <AdminInputOption titleOption="Social link title" value={socialTitle} setValue={(e: any) => setSocialTitle(e.target.value)} placeholder="Enter social link title"/>
+                <AdminInputOption titleOption="Social link url" value={socialUrl} setValue={(e: any) => setSocialUrl(e.target.value)} placeholder="Enter social link url"/>
                 <AdminActionsOption buttonData={buttonDataSocial} titleOption="Actions with the social link"/>
             </div>
 

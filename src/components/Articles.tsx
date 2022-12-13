@@ -5,7 +5,7 @@ import CardSkeleton from "./CardSkeleton";
 
 export interface ArticlesProps {
     items: any[]
-    orientation: 'grid' | 'list'
+    orientation: string
 }
 
 const Articles: React.FC<ArticlesProps> = ({orientation, items}) => {

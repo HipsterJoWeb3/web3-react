@@ -4,8 +4,8 @@ import React from 'react'
 
 interface IProps {
     currentPage?: number
-    onChangePage?: (page: number) => void
-    totalCount?: number
+    onChangePage?: ((page: number) => void) | any
+    totalCount?: number | any
 }
 
 const Pagination: React.FC<IProps> = ({currentPage, onChangePage, totalCount}) => {
@@ -18,7 +18,6 @@ const Pagination: React.FC<IProps> = ({currentPage, onChangePage, totalCount}) =
         pageRangeDisplayed={4}
         pageCount={totalCount/15}
         previousLabel="<"
-        renderOnZeroPageCount={null}
 
     />
   )

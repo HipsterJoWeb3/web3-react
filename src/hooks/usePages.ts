@@ -3,9 +3,9 @@ import {createPage, deletePage, hiddenPage, updatePage} from "../asyncActions/pa
 import {toastError, toastSuccess} from "./useModalAndAlert";
 
 
-export const getPages = (pages) => {
+export const getPages = (pages: any) => {
     const value = useMemo(() => {
-        return pages.map((page) => {
+        return pages.map((page: any) => {
             return {
                 link: page?.route,
                 title: page?.value,
@@ -19,7 +19,7 @@ export const getPages = (pages) => {
     return value
 }
 
-export const updatePagesAction = async (id, title, description, content, route) => {
+export const updatePagesAction = async (id: any, title: any, description: any, content: any, route: any) => {
     const data = await updatePage(id, {
         value: title,
         description,
@@ -34,10 +34,10 @@ export const updatePagesAction = async (id, title, description, content, route) 
     }
 }
 
-export const hiddenPageAction = async (id: string, hidden: boolean, setPagesListState: any,  pagesListState: any) => {
+export const hiddenPageAction = async (id: any, hidden: boolean, setPagesListState: any,  pagesListState: any) => {
     const data = await hiddenPage(id, hidden)
     if(data) {
-        setPagesListState(pagesListState.map((page) => {
+        setPagesListState(pagesListState.map((page: any) => {
             if(page._id === id) {
                 return {
                     link: data?.route,
@@ -57,11 +57,11 @@ export const hiddenPageAction = async (id: string, hidden: boolean, setPagesList
     }
 }
 
-export const deletePageAction = async (id: string, setPagesListState: any,  pagesListState: any, setCurrentPageId: any, setPageName: any, setPageDescription: any, setPageRoute: any) => {
-    const index = pagesListState.findIndex((page) => page._id === id)
+export const deletePageAction = async (id: any, setPagesListState: any,  pagesListState: any, setCurrentPageId: any, setPageName: any, setPageDescription: any, setPageRoute: any) => {
+    const index = pagesListState.findIndex((page: any) => page._id === id)
     const data = await deletePage(id)
     if(data) {
-        setPagesListState(pagesListState.filter((page) => page._id !== id))
+        setPagesListState(pagesListState.filter((page: any) => page._id !== id))
         const currentPage = index === 0 ? pagesListState[1] : pagesListState[index - 1]
         setCurrentPageId(currentPage?._id)
         setPageName(currentPage?.title)
@@ -74,7 +74,7 @@ export const deletePageAction = async (id: string, setPagesListState: any,  page
     }
 }
 
-export const addPageAction = async (title, content, description, route) => {
+export const addPageAction = async (title: any, content: any, description: any, route: any) => {
 
 
     if(title?.trim()?.length > 0 && content.time && description?.trim()?.length > 0 && route?.trim()?.length > 0) {

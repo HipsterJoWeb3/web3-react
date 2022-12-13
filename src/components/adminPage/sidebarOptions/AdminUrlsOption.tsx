@@ -14,8 +14,8 @@ export interface AdminUrlsOptionProps {
       text: string
       href: string
       active: boolean
-    }[]
-    setButtonValue?: (arg: any) => void
+    }[] | any
+    setButtonValue?: ((arg: any) => void ) | any
     removeItem?: (url: string) => void
 }
 
@@ -38,7 +38,7 @@ const AdminUrlsOption: React.FC<AdminUrlsOptionProps> = ({titleOption, buttonDat
     y: 0
   })
 
-  const linksRef = useRef()
+  const linksRef = useRef<any>()
 
   useEffect(() => {
     useHandleClick(linksRef, () => {
@@ -48,7 +48,7 @@ const AdminUrlsOption: React.FC<AdminUrlsOptionProps> = ({titleOption, buttonDat
 
 
 
-  const showPopupLink = (e) => {
+  const showPopupLink = (e: any) => {
     setPopupChange(false)
     setPopupLinkAction(false)
     setPopupChange(true)
@@ -78,19 +78,19 @@ const AdminUrlsOption: React.FC<AdminUrlsOptionProps> = ({titleOption, buttonDat
   const [linkAction, setLinkAction] = useState('menu')
 
 
-  const changeLinkAction = (_, value) => {
+  const changeLinkAction = (_: any, value: any) => {
     setLinkAction(value)
   }
 
-  const changeInputTitle = (e) => {
+  const changeInputTitle = (e: any) => {
     setInputTitle(e.target.value)
   }
 
-  const changeInputUrl = (e) => {
+  const changeInputUrl = (e: any) => {
     setInputUrl(e.target.value)
   }
 
-  const removeLinkAction = (_, value) => {
+  const removeLinkAction = (_: any, value: any) => {
     console.log('removeLinkAction', value)
   }
 

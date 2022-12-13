@@ -2,13 +2,13 @@ import MyButton from '../../../UI/buttons/MyButton'
 import MenuPopup from '../../MenuPopup'
 import ButtonList from '../../ButtonList'
 
-import { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 export interface AdminDropDownListProps {
     titleOption?: string
     buttonTitle?: string
     items: Array<{name: string}>
-    setDropdownTitle?: (value: string) => void
+    setDropdownTitle?: ((value: string) => void) | any
     dropdownindex?: number | 0
 
 }
@@ -22,17 +22,17 @@ const AdminDropDownList: React.FC<AdminDropDownListProps> = ({dropdownindex, tit
     setVisibleDropdown(true)
   }
 
-  const changeDropdown = (item, i, e) => {
+  const changeDropdown = (item: any, i: number, e: any) => {
     setIndex(i)
     setDropdownTitle(`${item.name} ↓`)
     setVisibleDropdown(false)
   }
 
-  const dropdownRef = useRef()
+  const dropdownRef = useRef<any>()
 
 
   useEffect(() => {
-    const handleClickOutside  = e => {
+    const handleClickOutside = (e: any) => {
       if(!e.path.includes(dropdownRef.current)) {
         setVisibleDropdown(false)
       }

@@ -34,7 +34,7 @@ const ChapterSidebar: React.FC<ChapterSidebarProps> = ({sidebarTitle, inputValue
             titleOption="Chapter name"
             placeholder="Enter chapter name"
             value={inputValue}
-            setValue={(e) => setInputValue(e.target.value)}
+            setValue={(e: any) => setInputValue(e.target.value)}
         />
         <AdminTextareaOption
             titleOption="Chapter description"
@@ -43,7 +43,7 @@ const ChapterSidebar: React.FC<ChapterSidebarProps> = ({sidebarTitle, inputValue
             setValue={setTextAreaValue}
         />
         <AdminSelectOption titleOption="Show on home page" selectData={selectData} />
-        <AdminInputOption titleOption="Number of posts per page" value={numberPosts} setValue={(e) => setNumberPosts(e.target.value)} placeholder="Enter number posts"/>
+        <AdminInputOption titleOption="Number of posts per page" value={numberPosts} setValue={(e: any) => setNumberPosts(e.target.value)} placeholder="Enter number posts"/>
         <AdminActionsOption buttonData={buttonData} titleOption="Actions with the chapter"/>
       </div>
     </div>
