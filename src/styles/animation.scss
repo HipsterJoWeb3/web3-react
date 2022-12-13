@@ -1,0 +1,379 @@
+
+
+.main-animation {
+  position: relative;
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
+    grid-template-rows: 4fr 1fr;
+  }
+}
+
+@keyframes rotation{from{transform:rotateY(0deg)}to{transform:rotateY(360deg)}}
+
+$ringRadius: 7rem;
+$ringSectors: 2;
+$animDuration: 15s;
+
+
+@keyframes tiltSpin {
+
+
+    0% {
+        transform: rotateZ(-20deg) rotateX(-10deg) ;
+    }
+    50% {
+        transform: rotateZ(20deg)  rotateX(10deg) ;
+    }
+    100% {
+        transform: rotateZ(-20deg) rotateX(-10deg) ;
+    }
+}
+
+@keyframes spin {
+  from {
+    transform: rotateY(0);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+};
+
+@keyframes label {
+  0% {
+    transform: translate(-50%, -50%) rotateZ(20deg) ;
+  }
+  50% {
+    transform: translate(-50%, -50%) rotateZ(-20deg)  ;
+  }
+  100% {
+    transform: translate(-50%, -50%) rotateZ(20deg) ;
+  }
+}
+
+
+@keyframes showSphere {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.box {
+  grid-column: 2/span 1;
+  width: 100%;
+  height: 60vh;
+  position: relative;
+  padding: 20px 100px;
+
+  &-title {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    animation: label 30s infinite ease-in-out;
+    &.loaded {
+      p {
+        color: #CDDBFC;
+        -webkit-text-stroke: 1px #000;
+      }
+    }
+    p {
+      font-family: 'IBM Plex Mono';
+      font-weight: 700;
+      font-size: 180px;
+      color: transparent;
+      -webkit-text-stroke: .5px #000;
+      transition: .6s ease-in-out;
+    }
+  }
+
+  &-subtitle {
+    position: absolute;
+    top: 36%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -100%);
+    width: 500px;
+    p{
+      font-family: 'IBM Plex Mono';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 48px;
+      text-align: center;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+  }
+
+  &-term {
+
+    background: #000;
+    padding: 15px 20px 15px 40px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px  ;
+    &__wrap {
+      grid-column: 2/span 1;
+      grid-row: 2;
+      position: relative;
+    }
+    &::selection {
+      background: #fff;
+      color: #000;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 70%;
+
+      background: #fff;
+
+    }
+    p{
+      font-family: 'IBM Plex Mono';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      color: #fff;
+      &::selection {
+        background: #fff;
+        color: #000;
+      }
+    }
+  }
+
+  &-link {
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+
+  }
+
+  &-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    &__label {
+      grid-column: 1/ span 1;
+      font-family: 'IBM Plex Mono';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 60px;
+      line-height: 60px;
+
+    }
+
+    &__inner {
+      grid-column: 2/ span 2;
+    }
+
+    p {
+      font-family: 'IBM Plex Mono';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 48px;
+
+    }
+
+    h1 {
+      font-family: 'IBM Plex Mono';
+      font-weight: 700;
+      font-size: 50px;
+      color: #fff;
+      text-shadow: 0px 0px 1px #000;
+    }
+  }
+
+  &-carousel {
+
+    width: 180px;
+    height: 100px;
+    position: relative;
+
+    transform-style: preserve-3d;
+    animation: tiltSpin 30s ease-in-out infinite;
+    perspective-origin: center;
+    perspective: 1000px;
+
+
+
+    border: 1px;
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        height: 400px;
+        //background-image: radial-gradient(#fff6, #fff1, transparent);
+        background-image: url('../assets/img/sphere.svg');
+        background-position: center;
+        background-size: cover;
+        z-index: -2;
+        transition: .6s all ease-in-out;
+        opacity: 0;
+    }
+
+    &.loaded {
+        &:after {
+            opacity: 1;
+        }
+    }
+
+
+
+    &__wrap {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+    }
+
+
+    &__rotate {
+      //background: cadetblue;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      transform-style: preserve-3d;
+      animation: {
+        name: rotation;
+        duration: $animDuration ;
+        timing-function: linear;
+        iteration-count: inherit;
+
+      }
+      &:nth-child(even) {
+        animation-direction: reverse;
+      }
+
+      div {
+        position: absolute;
+        width: 100%;
+        height: 78%;
+        left: 10px;
+        top: 10px;
+        overflow: hidden;
+        button {
+          font-size: 10px;
+          width: fit-content;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+
+  }
+}
+
+
+
+
+$color-primary: #E6EAF7;
+$color-secondary: #88A3EB;
+$color-tertiary: #6285E5;
+$color-quaternary: #3E69DE;
+$color-quinary: #000;
+$glitch-bg-color: #4242e6;
+
+
+.text_shadows {
+  text-shadow: -3px -3px 0 $color-secondary, -6px -6px 0 $color-tertiary,
+  -9px -9px $color-quaternary, -12px -12px 0 $color-quinary;
+  font-family: bungee, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
+  color: $color-primary;
+  animation: shadows 1.2s ease-in infinite, move 1.2s ease-in infinite;
+  letter-spacing: 0.4rem;
+}
+
+@keyframes shadows {
+  0% {
+    text-shadow: none;
+  }
+  10% {
+    text-shadow: -3px -3px 0 $color-secondary;
+  }
+  20% {
+    text-shadow: -3px -3px 0 $color-secondary,
+    -6px -6px 0 $color-tertiary;
+  }
+  30% {
+    text-shadow: -3px -3px 0 $color-secondary,
+    -6px -6px 0 $color-tertiary, -9px -9px $color-quaternary;
+  }
+  40% {
+    text-shadow: -3px -3px 0 $color-secondary,
+    -6px -6px 0 $color-tertiary, -9px -9px $color-quaternary,
+    -12px -12px 0 $color-quinary;
+  }
+  50% {
+    text-shadow: -3px -3px 0 $color-secondary,
+    -6px -6px 0 $color-tertiary, -9px -9px $color-quaternary,
+    -12px -12px 0 $color-quinary;
+  }
+  60% {
+    text-shadow: -3px -3px 0 $color-secondary,
+    -6px -6px 0 $color-tertiary, -9px -9px $color-quaternary,
+    -12px -12px 0 $color-quinary;
+  }
+  70% {
+    text-shadow: -3px -3px 0 $color-secondary,
+    -6px -6px 0 $color-tertiary, -9px -9px $color-quaternary;
+  }
+  80% {
+    text-shadow: -3px -3px 0 $color-secondary,
+    -6px -6px 0 $color-tertiary;
+  }
+  90% {
+    text-shadow: -3px -3px 0 $color-secondary;
+  }
+  100% {
+    text-shadow: none;
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  40% {
+    transform: translate(-12px, -12px);
+  }
+  50% {
+    transform: translate(-12px, -12px);
+  }
+  60% {
+    transform: translate(-12px, -12px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}

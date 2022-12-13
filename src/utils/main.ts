@@ -1,0 +1,1 @@
+export const baseUrl = 'https://web3backend-production.up.railway.app'

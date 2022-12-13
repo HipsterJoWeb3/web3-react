@@ -1,0 +1,143 @@
+
+.articles {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-column-gap: 20px;
+  &.reverse {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr;
+    .options {
+      grid-column: 1/ span 4;
+      grid-row: 1;
+    }
+
+    .articles-content {
+      grid-column: 5/ span 12;
+      grid-row: 1;
+    }
+  }
+  &-wrap {
+    margin-top: 240px;
+  }
+  &-label {
+    margin-bottom: 80px;
+    .d-flex {
+      padding: 0 16px;
+      gap: 20px;
+    }
+    h2 {
+      font-weight: 500;
+      font-size: 28px;
+      line-height: 23px;
+      white-space: nowrap;
+    }
+  }
+
+  &-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    &.list {
+      grid-template-columns: 1fr;
+    }
+    &__column {
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+  }
+
+  &-filter {
+    margin-bottom: 60px;
+    &__buttons {
+      gap: 8px;
+      span {
+        font-size: 12px;
+      }
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+
+  &-pagination {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+}
+
+.options {
+  padding: 25px 20px;
+  background: $lightBlue;
+  height: fit-content;
+
+  &-item {
+    margin-bottom: 30px;
+  }
+
+  &-label {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+    margin-bottom: 16px;
+  }
+
+  &-buttons {
+    gap: 20px;
+
+    button {
+      span {
+        font-size: 12px;
+      }
+    }
+  }
+
+
+}
+
+
+.link {
+
+  &-text {
+    background: #000;
+    color: #fff;
+    padding: 25px;
+    gap: 30px!important;
+
+
+    &__title {
+        font-weight: 600;
+        font-size: 17px;
+        line-height: 23px;
+        margin-bottom: 10px;
+    }
+    &__description {
+        font-size: 15px;
+        line-height: 24px;
+        margin-bottom: 20px;
+    }
+    &__anchor {
+        font-size: 15px;
+        line-height: 24px;
+        color: #888;
+    }
+    &__image {
+      width: 120px;
+      height: 65px;
+      background-position: center;
+      background-size: contain;
+        background-repeat: no-repeat;
+    }
+  }
+}
+
+
+.infinite-scroll-component {
+  overflow: visible!important;
+}

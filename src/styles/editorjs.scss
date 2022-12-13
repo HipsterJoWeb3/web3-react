@@ -1,0 +1,335 @@
+
+@mixin toolbarBtn() {
+  background: #fff;
+  border-radius: 0 !important;
+  color: #000;
+  border: none;
+  box-shadow: none;
+  &:hover {
+    border: none;
+    box-shadow: none;
+    background: #000;
+    color: #fff;
+  }
+}
+
+.ce-popover__item--focused:not(.ce-popover__item--no-visible-focus) {
+    background: #000 !important;
+    color: #fff !important;
+}
+
+.ce {
+
+  &-popover {
+    background: #fff;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    .ce-toolbar__button {
+      @include toolbarBtn();
+    }
+    &__item {
+      &-icon {
+        border-radius: 0px !important;
+      }
+      &--active {
+        background: #000 !important;
+        color: #fff !important;
+        border-radius: 0 !important;
+        .ce-popover__item-icon {
+          background: #000 !important;
+        }
+      }
+      &:hover {
+        background: #000!important;
+        color: #fff;
+        border-radius: 0;
+        .ce-popover__item-icon {
+          background: #000;
+          border-radius: 0;
+        }
+      }
+      &--focused {
+        .ce-popover__item {
+          background: #000 !important;
+          color: #fff !important;
+          border-radius: 0;
+        }
+        background: #000 !important;
+        color: #fff !important;
+        border-radius: 0;
+        .ce-popover__item-icon {
+          background: #000 !important;
+          border-radius: 0;
+
+        }
+      }
+    }
+  }
+
+  &-code {
+    textarea {
+      font-family: 'IBM Plex Mono', monospace;
+      background: $lightBlue;
+      border-radius: 0 !important;
+
+    }
+  }
+
+  &-toolbar {
+    background: $lightBlue;
+    border-radius: 0 !important;
+    &__plus {
+      @include toolbarBtn();
+    }
+    &__settings {
+      &-btn {
+        @include toolbarBtn();
+      }
+    }
+  }
+
+  &-settings {
+    background: #fff;
+    border-radius: 0 !important;
+    border: none;
+    box-shadow: none; 
+    &__button {
+      @include toolbarBtn();
+    }
+
+    &__plugin{
+      &-zone {
+        span {
+          background: #fff;
+          border-radius: 0 !important;
+          border: none;
+          box-shadow: none;
+          &.cdx-settings-button--active {
+            background: #000;
+            color: #fff;
+          }
+          &.ce-settings__button--focused {
+            background: #000 !important;
+            color: #fff !important;
+            &:hover {
+              background: #000;
+              color: #fff;
+            }
+          }
+          &:hover {
+            background: #000;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  &-tune-move-up {
+    @include toolbarBtn();
+  }
+}
+
+.ct {
+  &__content {
+    font-family: 'IBM Plex Mono', monospace;
+    background: #000;
+    border-radius: 0;
+    &:after {
+      background: #000;
+    }
+  }
+}
+
+.tc {
+  &-table {
+    border-color: #000 !important;
+  }
+  &-row {
+    border-color: #000 !important;
+  }
+    &-cell {
+        border-color: #000 !important;
+    }
+  &-add {
+    &-row {
+      background:transparent;
+      &:before {
+        background: transparent !important;
+      }
+      &:hover {
+        background: $lightBlue !important;
+      }
+      svg {
+        path {
+          fill: #000;
+        }
+      }
+    }
+
+    &-column {
+      background:transparent;
+      &:hover {
+        background: $lightBlue !important;
+      }
+    }
+  }
+
+  &-toolbox {
+    &__toggler {
+        svg {
+          rect {
+            fill: #fff;
+            rx: 0;
+          }
+          circle {
+            fill: #000;
+          }
+        }
+      &:hover {
+        svg {
+          rect {
+            fill: #000;
+          }
+          circle {
+            fill: #fff;
+          }
+        }
+      }
+    }
+  }
+
+
+}
+
+a.link-tool__content {
+  background: #121212;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  color: #fff;
+  &:after {
+    background: #000;
+  }
+}
+
+
+.link{
+  &-tool {
+    &__title {
+      color: #fff;
+    }
+    &__description {
+      color: #fff;
+    }
+    &__image {
+        border-radius: 0 !important;
+      display: block !important;
+    }
+  }
+}
+
+.cdx {
+  &-input {
+    box-shadow: none;
+    border: none;
+  }
+
+  &-search {
+    &-field {
+      background: #fff;
+      border-radius: 0;
+      border: 1px solid #000;
+    }
+  }
+
+  &-settings {
+    &-button {
+      @include toolbarBtn();
+    }
+  }
+
+  &-button {
+    @include toolbarBtn();
+  }
+  &-list {
+    &__item {
+      &--selected {
+        background: #000;
+        color: #fff;
+      }
+      list-style: circle;
+    }
+  }
+}
+
+h1.ce-header, h2.ce-header {
+    font-size: 22px;
+    font-weight: 500;
+
+}
+
+h3.ce-header {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+h4.ce-header {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+h5.ce-header {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+h6.ce-header {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.ce-inline-toolbar {
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  button {
+    @include toolbarBtn();
+  }
+  &__dropdown {
+    @include toolbarBtn();
+  }
+}
+
+.ce-conversion-toolbar {
+  border-radius: 0;
+    box-shadow: none;
+    border: none;
+  .ce-conversion-tool {
+    &--focused {
+        background: #000 !important;
+        color: #fff !important;
+      .ce-conversion-tool__icon {
+        background: #000 !important;
+        border-radius: 0;
+      }
+    }
+    &:hover {
+      background: #000;
+      color: #fff;
+      .ce-conversion-tool__icon {
+        background: #000;
+        border-radius: 0;
+      }
+    }
+  }
+}
+
+.ce-block__content {
+  max-width: 100% !important;
+}
+
+.ce-toolbar__content {
+  max-width: 100% !important;
+}

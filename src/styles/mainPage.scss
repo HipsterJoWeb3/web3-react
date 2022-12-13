@@ -1,0 +1,40 @@
+
+
+
+.main-section {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 20px;
+  &__preview {
+    grid-column: 7/ span 5;
+    img {
+      width: 100%;
+    }
+  }
+  &__content {
+    background: $blue;
+    padding: 30px 40px;
+    grid-column: 2/ span 6;
+    grid-row: 2;
+    margin-top: -40%;
+    h1 {
+      font-weight: 500;
+      font-size: 34px;
+      line-height: 44px;
+      margin-bottom: 18px;
+      span {
+        color: #fff;
+      }
+    }
+
+    p {
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 21px;
+    }
+  }
+  .d-flex {
+    gap: 16px;
+    margin-top: 80px;
+  }
+}

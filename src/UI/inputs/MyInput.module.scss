@@ -1,0 +1,42 @@
+
+.input {
+  border: none;
+  background: none;
+  outline: none;
+  border-bottom: .5px solid #000;
+  padding: 6px 16px;
+
+  &__error {
+    border: 2px solid #000;
+    margin-top: 6px;
+  }
+}
+
+.inputWithIcon {
+  border: none;
+  background: none;
+  outline: none;
+  border-bottom: .5px solid #000;
+  padding: 6px 16px 6px 32px;
+}
+
+.inputWrap {
+  position: relative;
+
+  img {
+    position: absolute;
+    left: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+
+
+.inputWhite {
+  border-color: #fff;
+  color: #fff;
+  &::placeholder {
+    color: #fff;
+  }
+}

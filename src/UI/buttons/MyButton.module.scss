@@ -1,0 +1,104 @@
+@import '../../styles/var.scss';
+
+
+
+.button, a.button {
+  background: none;
+  border: .5px solid #000;
+  padding: 4px 16px;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  cursor: pointer;
+  transition: $transition;
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+  width: max-content;
+  white-space: nowrap;
+
+  &:hover, {
+    background: #000;
+    color: #fff;
+    font-weight: 500;
+
+    svg {
+      path {
+        stroke: #fff;
+        stroke-width: 1px;
+      }
+
+      rect {
+        stroke: #fff;
+        stroke-width: 1px;
+      }
+    }
+  }
+
+
+
+}
+
+
+
+
+.buttonActive, a.buttonActive {
+  background: #000;
+  width: max-content;
+  border: .5px solid #000;
+  padding: 4px 16px;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 500;
+  transition: $transition;
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  &:hover {
+    background: transparent;
+    font-weight: 400;
+    color: #000;
+
+    svg {
+      path {
+        stroke: #000;
+        stroke-width: .5px;
+      }
+
+      rect {
+        stroke: #000;
+        stroke-width: .5px;
+      }
+    }
+  }
+
+  svg {
+    path {
+      stroke: #fff;
+      stroke-width: 1px;
+    }
+
+    rect {
+      stroke: #fff;
+      stroke-width: 1px;
+    }
+  }
+
+
+}
+
+.white {
+  border-color: #fff;
+  color: #fff;
+  &:hover {
+    background: #fff;
+    color: #000;
+  }
+}
